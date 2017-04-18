@@ -55,9 +55,21 @@ public class EventModel {
 	}
 	public void setStartDate(Date sd){
 		this.startDate = sd;
+		
+	if(startDate.after(endDate)){
+		throw new IllegalArgumentException();
+	}else 
+		System.out.println("the date is correct");
+		
+		
 	}
 	public void setEndDate(Date ed){
 		this.endDate  = ed;
+		if(endDate.before(startDate)){
+			throw new IllegalArgumentException();
+			
+		}else 
+			System.out.println("the date is correct");
 	}
 
      
