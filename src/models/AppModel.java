@@ -11,8 +11,8 @@ public class AppModel {
 		tml = new ArrayList<TimelineModel>();
 	}
 
-	public void setApp(List<TimelineModel> AppModel) {
-		this.tml = AppModel;
+	public void setApp(List<TimelineModel> newTml) {
+		this.tml = newTml;
 	}
 
 	public List<TimelineModel> getApp() {
