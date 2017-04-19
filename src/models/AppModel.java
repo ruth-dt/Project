@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AppModel {
 	private List<TimelineModel> tml;
-	AppController c; // ???
+	AppController c; // will be implemented in next Iteration
 
 	public AppModel() {
 		tml = new ArrayList<TimelineModel>();
