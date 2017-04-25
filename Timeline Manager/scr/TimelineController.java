@@ -15,19 +15,9 @@ public class TimelineController {
     Text endDate;
 
 
-    TimelineModel tm;
+    TimelineModel model;
 
-    public TimelineController(){
 
-    }
-
-    public void modelUpdated(){
-        name.setText(tm.getName());
-        String sdate = tm.getStartDate().toString();
-        startDate.setText(sdate);
-        String edate = tm.getEndDate().toString();
-        endDate.setText(edate);
-    }
 
     public void addEventClickHandler(){
 
@@ -38,20 +28,32 @@ public class TimelineController {
     }
 
     public void deleteClickHandler(){
-    	tm.getAppModel().remove(tm);
+    	model.getParentApp().remove(model);
     }
 
-    public void setTimelineModel(TimelineModel a){
-        tm = a;
+    public void setModel(TimelineModel timelineModel){
+        model = timelineModel;
 
     }
-    public TimelineModel getTimelineModel(){
-    	return tm;
+    public TimelineModel getModel(){
+    	return model;
     }
 
     public VBox getView(){
         return rootView;
     }
 
-
+	public void eventAdded(EventModel eventModel){}
+	public void eventRemoved(EventModel eventModel){}
+	
+    /**
+     * Method is called the timeline name, start- or enddate is changes
+     */
+    public void modelUpdated(){
+        name.setText(model.getName());
+        String sdate = model.getStartDate().toString();
+        startDate.setText(sdate);
+        String edate = model.getEndDate().toString();
+        endDate.setText(edate);
+    }
 }

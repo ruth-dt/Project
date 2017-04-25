@@ -3,38 +3,45 @@ import java.util.List;
 
 public class AppModel {
 
-    private List<TimelineModel> tml;
-    AppController c;
+    private List<TimelineModel> timelineModelList = new ArrayList<TimelineModel>(); //An app can contain many timelines
+    private AppController controller;
 
-    public void setController(AppController a){
-        c=a;
+    /**
+     * Sets the controller for this model
+     * @param _controller
+     */
+    public void setController(AppController _controller){
+    	controller=_controller;
+    }
+    
+    /**
+     * Gets the current controller for this model.
+     * @return
+     */
+    public AppController getController() {
+    	return controller;
     }
 
-    public AppController getController(){
-        return c;
+    /**
+     * Adds a new timeline model to the timeline list.
+     * @param timelineModel
+     */
+    public void add(TimelineModel timelineModel) {
+
+        timelineModelList.add(timelineModel);	//Add timeline model to list
+        timelineModel.setParentApp(this);		//Make the timeline model aware that it belongs to _this_ AppModel
+        controller.timelineAdded(timelineModel);
     }
 
-    public AppModel() {
-        tml = new ArrayList<TimelineModel>();
-    }
-
-    public void setApp(List<TimelineModel> newTml) {
-        this.tml = newTml;
-    }
-
-    public List<TimelineModel> getApp() {
-        return tml;
-    }
-
-    public void add(TimelineModel tm) {
-        tml.add(tm);
-        tm.setAppModel(this);
-    }
-
-    public void remove(TimelineModel tm) {
-        tml.remove(tm);
-        tm.setAppModel(null);
-        c.timelineRemoved(tm);
+    /**
+     * Removes a timeline model from the timeline list.
+     * @param timelineModel
+     */
+    public void remove(TimelineModel timelineModel) {
+    	
+    	timelineModelList.remove(timelineModel); //Remove timeline model from list
+        timelineModel.setParentApp(null);		 //Make this model aware that it no longer belongs to any particular AppModel
+        controller.timelineRemoved(timelineModel);	 //Notify (App)controller that this (Timeline)model has been removed so that it can remove the (Timeline)view
     }
 
 }

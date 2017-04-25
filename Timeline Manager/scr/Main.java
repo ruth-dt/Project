@@ -6,12 +6,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application{
+	private AppModel appModel;
+	
     public static void main(String[] args) {
         launch(args);
     }
 
     public void start(Stage primaryStage) throws IOException {
-        AppModel appModel = new AppModel();
+        appModel = new AppModel();
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("AppView.fxml")
@@ -22,10 +24,10 @@ public class Main extends Application{
         AppController ac = loader.getController();
 
 
-        ac.setAppModel(appModel);
+        ac.setModel(appModel);
         appModel.setController(ac);
 
-        Scene scene = new Scene(appModel.getController().getRoot(), 1000, 500);
+        Scene scene = new Scene(appModel.getController().getView(), 1000, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
 
