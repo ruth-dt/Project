@@ -23,7 +23,6 @@ public class Main extends Application{
 
 
         ac.setAppModel(appModel);
-
         appModel.setController(ac);
 
         Scene scene = new Scene(appModel.getController().getRoot(), 1000, 500);

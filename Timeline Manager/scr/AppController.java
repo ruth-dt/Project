@@ -90,4 +90,7 @@ public class AppController {
         appModel = a;
 
     }
+    public void timelineRemoved(TimelineModel tm){
+    	timelineContainer.getChildren().remove(tm.getController().getView());
+    }
 }

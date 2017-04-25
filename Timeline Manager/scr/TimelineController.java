@@ -38,18 +38,20 @@ public class TimelineController {
     }
 
     public void deleteClickHandler(){
-
+    	tm.getAppModel().remove(tm);
     }
 
     public void setTimelineModel(TimelineModel a){
         tm = a;
 
     }
+    public TimelineModel getTimelineModel(){
+    	return tm;
+    }
 
     public VBox getView(){
         return rootView;
     }
-
 
 
 }

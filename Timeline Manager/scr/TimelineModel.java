@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class TimelineModel {
 
+	AppModel am;
     TimelineController tc;
 
     private List <EventModel> eml;
@@ -76,6 +77,13 @@ public class TimelineModel {
 
     public TimelineController getController(){
         return tc;
+    }
+    
+    public void setAppModel(AppModel _am){
+    	am = _am;
+    }
+    public AppModel getAppModel(){
+    	return am;
     }
 
 }

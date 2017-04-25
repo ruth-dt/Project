@@ -36,7 +36,7 @@ public class NewTimelineController {
     }
 
     public void cancel(){
-
+    	//FIXME
     }
 
     public void setOwner(AppController _owner){

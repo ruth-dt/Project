@@ -4,7 +4,7 @@ import java.util.List;
 public class AppModel {
 
     private List<TimelineModel> tml;
-    AppController c ;
+    AppController c;
 
     public void setController(AppController a){
         c=a;
@@ -28,10 +28,13 @@ public class AppModel {
 
     public void add(TimelineModel tm) {
         tml.add(tm);
+        tm.setAppModel(this);
     }
 
     public void remove(TimelineModel tm) {
         tml.remove(tm);
+        tm.setAppModel(null);
+        c.timelineRemoved(tm);
     }
 
 }
