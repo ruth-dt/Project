@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="rootView" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EventController">
+   <children>
+      <Pane fx:id="emptySpace" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: white;" />
+      <VBox fx:id="exceptSpacer" style="-fx-background-color: white;">
+         <children>
+            <HBox style="-fx-background-color: white;">
+               <children>
+                  <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </HBox>
+            <Pane fx:id="eventBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showDetails" prefHeight="19.0" prefWidth="528.0" style="-fx-background-color: lightgreen;" />
+            <HBox fx:id="eventDetails" style="-fx-background-color: white;">
+               <children>
+                  <VBox style="-fx-background-color: white;">
+                     <children>
+                        <Text fx:id="startDate" strokeType="OUTSIDE" strokeWidth="0.0" text="startDate" />
+                        <Text fx:id="endDate" strokeType="OUTSIDE" strokeWidth="0.0" text="endDate" />
+                        <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" text="d" />
+                        <HBox style="-fx-background-color: white;">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#edit" prefHeight="6.0" prefWidth="51.0" text="Edit" />
+                              <Button mnemonicParsing="false" onAction="#remove" prefHeight="19.0" prefWidth="79.0" text="Remove" />
+                              <Button mnemonicParsing="false" onAction="#closeDetails" text="Close" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
