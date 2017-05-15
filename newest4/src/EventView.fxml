@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="rootView" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EventController">
+   <children>
+      <Pane fx:id="emptySpace" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" />
+      <VBox fx:id="exceptSpacer" style="-fx-border-color: transparent;">
+         <children>
+            <HBox fx:id="parentNameButtons">
+               <children>
+                  <Label fx:id="name" onMouseClicked="#showDetails" style="-fx-background-color: rgba(244,244,244,1);" text="name" />
+                  <HBox fx:id="buttonsContainer">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="12.0" fitWidth="25.0" onMouseClicked="#edit" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/iconmonstr-pencil-10-240.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="6.0" top="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <ImageView fitHeight="12.0" fitWidth="25.0" onMouseClicked="#remove" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@resources/iconmonstr-x-mark-2-240.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="6.0" top="2.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Pane fx:id="eventBar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showDetails" prefHeight="19.0" prefWidth="528.0" style="-fx-background-color: #404040;" />
+            <HBox fx:id="eventDetails">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label fx:id="startDate" text="startDate" />
+                        <Label fx:id="endDate" text="endDate" />
+                        <Label fx:id="description" text="description" wrapText="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
