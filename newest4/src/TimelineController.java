@@ -68,6 +68,8 @@ public class TimelineController {
         name.setText(model.getName());
         adjustSize();
         adjustMargin();
+	model.getChildEvents().stream().map(e -> e.getController()).forEach(c -> c.modelUpdated());
+        model.getParentApp().getController().adjustDateBar();
     }
 
     /**
