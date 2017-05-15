@@ -16,6 +16,7 @@ public class TimelineModel {
     public Date endDate;
 
 
+    public TimelineModel(){}
     public TimelineModel( Date start , Date end){
 
         if(start.before(end)){

@@ -33,12 +33,7 @@ public class Javafxapp extends Application{
 		TimelineModel tml = new TimelineModel(new Date(0), new Date(10));
 		ap.add(tml);
 		tml.add(em);
-        JAXBContext context = JAXBContext.newInstance(AppModel.class);  
-         
-        Marshaller marshaller = context.createMarshaller();  
-       
-        marshaller.marshal(ap, System.out);  
-        
+  
         Button btn2 = new Button();
         btn2.setText("save");
         btn2.setPrefSize(70, 20);
@@ -125,8 +120,8 @@ public class Javafxapp extends Application{
 	            Logger.getLogger(Javafxapp.class.getName()).log(Level.SEVERE, null, ex);
 	        }
 	         
-	    }*/
-		
+	    }
+		*/
 	
 
 	public static void main(String[] args) {
@@ -136,4 +131,6 @@ public class Javafxapp extends Application{
 	
 
 }
+
+
 

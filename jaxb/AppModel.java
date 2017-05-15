@@ -1,4 +1,5 @@
 package jaxb;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,9 +9,12 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import projectXml.list;
+
 
 @XmlRootElement(name = "AppModel")
 @XmlAccessorType(XmlAccessType.FIELD)
+
 public class AppModel {
 
 	@XmlElement(name = "tml")
@@ -44,5 +48,10 @@ public class AppModel {
     public void remove(TimelineModel tm) {
         tml.remove(tm);
     }
+    public List<TimelineModel> getChildTimelines(){
+    	return tml;
+    }
+ 
+   
 
 }
