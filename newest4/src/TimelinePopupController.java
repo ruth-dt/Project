@@ -45,7 +45,6 @@ public class TimelinePopupController {
 			return;
 		}
 		
-		timelineModel.getChildEvents().stream().forEach(System.out::println);
 		if (end.before(start) || name.length() == 0 || 
 				(timelineModel.getChildEvents().size() != 0 && timelineModel.getChildEvents().stream().map((EventModel event) -> {return event.getStartDate();}).min(Date::compareTo).get().before(start))
 				|| (timelineModel.getChildEvents().size() != 0 && timelineModel.getChildEvents().stream().map((EventModel event) -> {return event.getEndDate();}).max(Date::compareTo).get().after(end))) {
