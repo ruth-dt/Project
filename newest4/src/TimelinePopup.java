@@ -55,6 +55,8 @@ public class TimelinePopup {
 	void save(){
 		if(appModel != null){
 			appModel.add(timelineModel);
+		}else{
+			timelineModel.getController().modelUpdated();
 		}
 	}
 }
