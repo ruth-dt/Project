@@ -162,5 +162,8 @@ public class TimelineModel {
 	public AppModel getParentApp() {
 		return parentApp;
 	}
+	public List<EventModel> getChildEvents() {
+		return eventModelList;
+	}
 
 }
