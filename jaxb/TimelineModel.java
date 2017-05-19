@@ -14,14 +14,16 @@ public class TimelineModel {
     private List <EventModel> eml;
     public Date startDate;
     public Date endDate;
+    public String name;
 
 
     public TimelineModel(){}
-    public TimelineModel( Date start , Date end){
+    public TimelineModel( Date start , Date end ,String getname){
 
         if(start.before(end)){
             startDate = start;
             endDate = end;
+            name = getname;
             eml = new ArrayList<EventModel>();
         }
     }

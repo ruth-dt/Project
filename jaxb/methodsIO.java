@@ -17,13 +17,10 @@ public class methodsIO {
 		FileChooser chooser = new FileChooser();
 		
 		
-	    chooser.getExtensionFilters().addAll(
-	    new ExtensionFilter("Text Files","txt"),
-	    new ExtensionFilter("Image Files","*.png", "*.jpg","*gif"),
-	    new ExtensionFilter("Audio Files","*.mp3","*.aac"),
-	    new ExtensionFilter("All Files","*.*"));
+		 FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("XML files (*.xml)", "*.xml");
+         chooser.getExtensionFilters().add(extFilter);
 	    
-	    File file = chooser.showOpenDialog(null);		
+	    File file = chooser.showSaveDialog(null);		
 	    if(file != null){
 		/*Desktop desktop = Desktop.getDesktop();
 		try {

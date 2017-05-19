@@ -30,9 +30,9 @@ public class Javafxapp extends Application{
 		Group root = new Group();
 		AppModel ap=new AppModel();
 		EventModel em= new EventModel(new Date(0), new Date(10),"event","653u9866123123123bfdsfdgdfsdfsdafsadsffsgfadsfasdfdfasfasfd");
-		TimelineModel tml = new TimelineModel(new Date(0), new Date(10));
-		ap.add(tml);
-		tml.add(em);
+		//TimelineModel tml = new TimelineModel(new Date(0), new Date(10));
+	//	ap.add(tml);
+		//tml.add(em);
   
         Button btn2 = new Button();
         btn2.setText("save");

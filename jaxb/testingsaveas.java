@@ -16,8 +16,8 @@ public class testingsaveas extends Application{
 		methodsIO tmp= new methodsIO();
 		
 		AppModel ap=new AppModel();
-		EventModel em= new EventModel(new Date(0), new Date(10),"event","·ÉÈ÷·¢653u986612312312asfdfadsfasfasdfasdfsadfsfsfdfsad3bfdsfdgdfsdfsdafsadsffsgfadsfasdfdfasfasfd");
-		TimelineModel tml = new TimelineModel(new Date(0), new Date(10));
+		EventModel em= new EventModel(new Date(0), new Date(10),"event","653u986612312312asfdfadsfasfasdfasdfsadfsfsfdfsad3bfdsfdgdfsdfsdafsadsffsgfadsfasdfdfasfasfd");
+		TimelineModel tml = new TimelineModel(new Date(1000000), new Date(10000005),"Hello");
 		ap.add(tml);
 		tml.add(em);
 		

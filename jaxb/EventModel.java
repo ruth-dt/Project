@@ -11,6 +11,7 @@ public class EventModel {
     private String name;
 
 
+
     public EventModel(Date _startDate, Date _endDate, String name, String description){
 
 		if(_startDate.before(_endDate)) {
