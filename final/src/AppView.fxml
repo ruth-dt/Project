@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="rootView" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AppController">
+  <children>
+    <MenuBar style="-fx-background-color: white;" VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#addTimeline" text="New Timeline" />
+            <MenuItem mnemonicParsing="false" onAction="#openTimelines" text="Open…" />
+            <MenuItem mnemonicParsing="false" onAction="#saveTimelines" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#saveTimelinesAs" text="Save As…" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-18.0" layoutY="2.0" prefHeight="382.0" prefWidth="749.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <content>
+                  <VBox fx:id="timelineContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="233.0" prefWidth="452.0" style="-fx-background-image: url('resources/bg.png');">
+                     <children>
+                        <HBox fx:id="monthNumberContainer" />
+                        <HBox fx:id="dayNumberContainer" />
+                     </children></VBox>
+               </content></ScrollPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
