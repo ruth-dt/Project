@@ -41,6 +41,10 @@ public class AppController {
 	 */
 	public void openTimelines() {
 		AppModel loadedModel = fio.load();
+		
+		if(loadedModel == null) //Cancelled
+			return;
+		
 		model.removeAll();
 		model = loadedModel;
 		model.setController(this);
@@ -58,14 +62,14 @@ public class AppController {
 	 * Method is called when the user clicks "Save" in the "File" menu
 	 */
 	public void saveTimelines() {
-		fio.saveAs(model);
+		fio.save(model);
 	}
 
 	/**
 	 * Method is called when the user clicks "Save as" in the "File" menu
 	 */
 	public void saveTimelinesAs() {
-		System.out.print("lxvccvxvc908890xllllll");
+		fio.saveAs(model);
 	}
 
 	/**
@@ -128,9 +132,11 @@ public class AppController {
 
 	public void adjustDateBar() {
 		dayNumberContainer.getChildren().clear();
-
 		monthNumberContainer.getChildren().clear();
-
+		
+		if(model.getTimelineModelList().isEmpty())
+			return;
+		
 		Date minStart = new Date(model.getMinStartDate());
 		Date maxEnd = new Date(model.getMaxEndDate());
 
