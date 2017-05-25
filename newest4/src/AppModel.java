@@ -1,8 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAccessType;
+
+@XmlRootElement(name = "AppModel")
+@XmlAccessorType(XmlAccessType.NONE)
 public class AppModel {
 
+	@XmlElement(name = "Timeline")
     private List<TimelineModel> timelineModelList = new ArrayList<TimelineModel>(); //An app can contain many timelines
     private AppController controller;
 
@@ -52,12 +60,28 @@ public class AppModel {
      * The minimum start date is for setting the timeline position.
      * @return
      */
-    public long getMinStartDate(){
+    public long getMinStartDate(){    	
         return timelineModelList.stream().mapToLong(x -> {return x.getStartDate().getTime();}).min().getAsLong();
     }
-    public long getMaxEndDate(){
+    public long getMaxEndDate(){    	
     	return timelineModelList.stream().mapToLong(x -> {return x.getEndDate().getTime();}).max().getAsLong();
     }
+    
+    /**
+     * Clears the TimelineModel list gracefully, notifying the controller about each removal
+     */
+    public void removeAll(){
+    	timelineModelList.stream().forEach((tm) -> controller.timelineRemoved(tm));
+    	timelineModelList.clear();
+    }
+    
+    /**
+     * Gets the timeline model list. Internal.
+     * @return 
+     */
+    public List<TimelineModel> getTimelineModelList(){
+    	return timelineModelList;
+    }    
 }
 
 

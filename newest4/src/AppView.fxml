@@ -16,8 +16,8 @@
           <items>
             <MenuItem mnemonicParsing="false" onAction="#addTimeline" text="New Timeline" />
             <MenuItem mnemonicParsing="false" onAction="#openTimelines" text="Open…" />
-            <MenuItem mnemonicParsing="false" onAction="#savaTimelines" text="Save" />
-            <MenuItem mnemonicParsing="false" onAction="#savaTimelinesAs" text="Save As…" />
+            <MenuItem mnemonicParsing="false" onAction="#saveTimelines" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#saveTimelinesAs" text="Save As…" />
           </items>
         </Menu>
       </menus>

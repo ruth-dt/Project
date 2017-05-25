@@ -2,12 +2,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlAccessorType(XmlAccessType.NONE)
 public class TimelineModel {
 	// FIXME validate model on all changes
 
 	private AppModel parentApp; // The AppModel that this TimelineModel belongs
 								// to. Can be null.
 	private TimelineController controller;
+	@XmlElement(name = "EventModel")
 	private List<EventModel> eventModelList = new ArrayList<EventModel>(); // A
 																			// timeline
 																			// can
@@ -16,8 +23,11 @@ public class TimelineModel {
 																			// events
 
 	// The actual timeline properties
+	@XmlElement(name = "StartDate")
 	private Date startDate;
+	@XmlElement(name = "EndDate")
 	private Date endDate;
+	@XmlElement(name = "Name")
 	private String name;
 
 	TimelineModel() {
@@ -162,6 +172,10 @@ public class TimelineModel {
 	public AppModel getParentApp() {
 		return parentApp;
 	}
+	/**
+	 * Gets the list of events belonging to this timeline
+	 * @return
+	 */
 	public List<EventModel> getChildEvents() {
 		return eventModelList;
 	}

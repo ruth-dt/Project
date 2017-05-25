@@ -1,13 +1,25 @@
 
 import java.text.ParseException;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import java.util.Date;
 
+@XmlAccessorType(XmlAccessType.NONE)
 public class EventModel {
 
+	@XmlElement(name = "StartDate")
 	private Date startDate;
+	@XmlElement(name = "EndDate")
 	private Date endDate;
+	@XmlElement(name = "Description")
 	private String description;
+	@XmlElement(name = "Name")
 	private String name;
+	
 	private EventController controller;
 	private TimelineModel parentTimeline;
 

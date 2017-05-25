@@ -13,6 +13,7 @@ import java.util.Date;
 
 public class AppController {
 
+	FileIO fio = new FileIO();
 	AppModel model;
 
 	@FXML
@@ -39,20 +40,31 @@ public class AppController {
 	 * Method is called when the user clicks "Open" in the "File" menu
 	 */
 	public void openTimelines() {
-		System.out.print("ll43554345ll");
+		AppModel loadedModel = fio.load();
+		model.removeAll();
+		model = loadedModel;
+		model.setController(this);
+		model.getTimelineModelList().stream().forEach((tm) -> {
+			tm.setParentApp(model);
+			timelineAdded(tm);
+			tm.getChildEvents().forEach((em) -> {
+				em.setParentTimeline(tm);
+				tm.getController().eventAdded(em);
+			});
+		});
 	}
 
 	/**
 	 * Method is called when the user clicks "Save" in the "File" menu
 	 */
-	public void savaTimelines() { // FIXME name spelling
-		System.out.print("lxvccvxvclijlkxllllll");
+	public void saveTimelines() {
+		fio.saveAs(model);
 	}
 
 	/**
 	 * Method is called when the user clicks "Save as" in the "File" menu
 	 */
-	public void savaTimelinesAs() { // FIXME name spelling
+	public void saveTimelinesAs() {
 		System.out.print("lxvccvxvc908890xllllll");
 	}
 
