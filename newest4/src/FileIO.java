@@ -1,7 +1,5 @@
-
 import java.io.File;
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
@@ -70,7 +68,7 @@ public class FileIO {
 			AppModel emp = (AppModel) un.unmarshal(loadthisfile);
 			return emp;
 		} catch (Exception e) {
-			Alert alert = new Alert(AlertType.WARNING);
+			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText("I/O Error");
 			alert.setContentText("An error was encountered while loading the file: " + e.getMessage());
@@ -87,7 +85,7 @@ public class FileIO {
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			m.marshal(emp, loadthisfile);
 		} catch (Exception e) {
-			Alert alert = new Alert(AlertType.WARNING);
+			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText("I/O Error");
 			alert.setContentText("An error was encountered while saving the file: " + e.getMessage());
