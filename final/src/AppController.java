@@ -102,6 +102,9 @@ public class AppController {
 		// timeline views
 		timelineContainer.getChildren().remove(timelineModel.getController().getView());
 		adjustDateBar();
+		model.getTimelineModelList().stream().forEach(x -> {
+			x.getController().adjustMargin();
+		});
 	}
 
 	/**
